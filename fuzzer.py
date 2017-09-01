@@ -9,6 +9,7 @@ array_injections = ['0x200', "<script>alert('hacked')</script>", '../../etc/pass
 
 # Add Option to choose types of injections
 # Add for authorization if needed
+Input.welcome()
 
 end_point = Input.ep_options()
 request_type = Input.req_options()

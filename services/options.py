@@ -1,6 +1,13 @@
 class Input():
+    def welcome():
+        print('\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\
+        [*] [*] [*] [*] [*] [*] [*] [*] [*] [*] [*]\n\
+        [*] [*] [*] [*] [*] FUZZERs [*] [*] [*] [*]\n\
+        [*] [*] [*] [*] [*] [*] [*] [*] [*] [*] [*]\n\
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
+
     def ep_options():
-        end_point = input('[!] Please provide an endpoint\
+        end_point = input('\n[!] Please provide an endpoint\
         \n(Mark your entry Ex: http://myvulnsite.com/index.php?id=[]): ')
 
         return end_point
