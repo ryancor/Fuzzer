@@ -2,13 +2,6 @@ import time
 import requests
 from services.options import Input
 
-array_injections = ['0x200', "<script>alert('hacked')</script>", '../../etc/passwd',
-    '; cat /etc/passwd', "$(`echo(wget http://google.com)`)", "' OR 'a'='a",
-    '*/*', "') or (SELECT admin FROM users WHERE admin = true AND ''='",
-    '<!--#exec cmd="ls ../"-->']
-
-# Add Option to choose types of injections
-
 Input.welcome()
 
 end_point = Input.ep_options()
@@ -16,7 +9,27 @@ request_type = Input.req_options()
 
 user, passwd = Input.auth_options()
 
-for arr in array_injections:
+injection_type = Input.injection_options()
+
+ops = []
+if injection_type == 'SQL':
+    ops.append(Input.sql_injections())
+elif injection_type == 'XSS':
+    ops.append(Input.sql_injections())
+elif injection_type == 'Command':
+    ops.append(Input.sql_injections())
+elif injection_type == 'RCE':
+    ops.append(Input.sql_injections())
+elif injection_type == 'RCE':
+    ops.append(Input.sql_injections())
+elif injection_type == 'Fuzzer':
+    ops.append(Input.sql_injections())
+elif injection_type == 'LDAP':
+    ops.append(Input.sql_injections())
+else:
+    ops.append(Input.sql_injections())
+
+for arr in ops[0]:
     try:
         time.sleep(2)
 
