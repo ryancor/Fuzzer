@@ -16,3 +16,9 @@ class Input():
         request_type = input('[!] GET, POST, PUT, DELETE? ')
 
         return request_type
+
+    def auth_options():
+        user = input('\n[!] Provide Basic-Auth User (leave blank if none): ')
+        passwd = input('[!] Provide Basic-Auth Password (leave blank if none): ')
+
+        return user, passwd

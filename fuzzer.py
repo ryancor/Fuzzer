@@ -14,8 +14,7 @@ Input.welcome()
 end_point = Input.ep_options()
 request_type = Input.req_options()
 
-user = input('\n[!] Provide Basic-Auth User (leave blank if none): ')
-passwd = input('[!] Provide Basic-Auth Password (leave blank if none): ')
+user, passwd = Input.auth_options()
 
 for arr in array_injections:
     try:
