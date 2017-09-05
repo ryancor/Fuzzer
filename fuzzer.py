@@ -28,7 +28,9 @@ elif injection_type == 'LDAP':
 elif injection_type == 'Fuzzer':
     ops.append(Injections.sql_injections())
 else:
-    ops.append(Injections.sql_injections())
+    ops.append(Injections.dast_scan())
+
+print('\n Running {0} Scan'.format(injection_type.upper()))
 
 for arr in ops[0]:
     try:
