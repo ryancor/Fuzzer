@@ -1,7 +1,7 @@
 class Injections():
     def injection_options():
         injection_type = input('\n[!] What type of injection do you want?\
-        (Options: SQL, Command, XSS, RCE, LDAP, LFI, Fuzzer)\
+        (Options: SQL, Command, XSS, RCE, LDAP, LFI, Fuzzer, Full DAST)\
         \n-> ')
 
         return injection_type

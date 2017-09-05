@@ -1,3 +1,4 @@
+import sys
 import time
 import requests
 from services.options import Input
@@ -27,10 +28,13 @@ elif injection_type == 'LDAP':
     ops.append(Injections.sql_injections())
 elif injection_type == 'Fuzzer':
     ops.append(Injections.sql_injections())
-else:
+elif injection_type == 'DAST' or injection_type == 'Full DAST':
     ops.append(Injections.dast_scan())
+else:
+    print('\n[-] Not a valid injection type.')
+    sys.exit(0)
 
-print('\n Running {0} Scan'.format(injection_type.upper()))
+print('\n[+] Running {0} Scan'.format(injection_type.upper()))
 
 for arr in ops[0]:
     try:
