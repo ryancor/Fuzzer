@@ -1,6 +1,7 @@
 import time
 import requests
 from services.options import Input
+from services.injections import Injections
 
 Input.welcome()
 
@@ -9,25 +10,25 @@ request_type = Input.req_options()
 
 user, passwd = Input.auth_options()
 
-injection_type = Input.injection_options()
+injection_type = Injections.injection_options()
 
 ops = []
 if injection_type == 'SQL':
-    ops.append(Input.sql_injections())
+    ops.append(Injections.sql_injections())
 elif injection_type == 'XSS':
-    ops.append(Input.sql_injections())
+    ops.append(Injections.sql_injections())
 elif injection_type == 'Command':
-    ops.append(Input.sql_injections())
+    ops.append(Injections.sql_injections())
 elif injection_type == 'RCE':
-    ops.append(Input.sql_injections())
+    ops.append(Injections.sql_injections())
 elif injection_type == 'RCE':
-    ops.append(Input.sql_injections())
+    ops.append(Injections.sql_injections())
 elif injection_type == 'Fuzzer':
-    ops.append(Input.sql_injections())
+    ops.append(Injections.sql_injections())
 elif injection_type == 'LDAP':
-    ops.append(Input.sql_injections())
+    ops.append(Injections.sql_injections())
 else:
-    ops.append(Input.sql_injections())
+    ops.append(Injections.sql_injections())
 
 for arr in ops[0]:
     try:
