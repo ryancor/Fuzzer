@@ -16,16 +16,16 @@ ops = []
 if injection_type == 'SQL':
     ops.append(Injections.sql_injections())
 elif injection_type == 'XSS':
-    ops.append(Injections.sql_injections())
+    ops.append(Injections.xss_injections())
 elif injection_type == 'Command':
-    ops.append(Injections.sql_injections())
+    ops.append(Injections.command_injections())
 elif injection_type == 'RCE':
     ops.append(Injections.sql_injections())
-elif injection_type == 'RCE':
-    ops.append(Injections.sql_injections())
-elif injection_type == 'Fuzzer':
+elif injection_type == 'LFI':
     ops.append(Injections.sql_injections())
 elif injection_type == 'LDAP':
+    ops.append(Injections.sql_injections())
+elif injection_type == 'Fuzzer':
     ops.append(Injections.sql_injections())
 else:
     ops.append(Injections.sql_injections())
