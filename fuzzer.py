@@ -21,11 +21,11 @@ elif injection_type == 'XSS':
 elif injection_type == 'Command':
     ops.append(Injections.command_injections())
 elif injection_type == 'RCE':
-    ops.append(Injections.sql_injections())
+    ops.append(Injections.rce_injections())
 elif injection_type == 'LFI':
     ops.append(Injections.sql_injections())
 elif injection_type == 'LDAP':
-    ops.append(Injections.sql_injections())
+    ops.append(Injections.ldap_injections())
 elif injection_type == 'Fuzzer':
     ops.append(Injections.sql_injections())
 elif injection_type == 'DAST' or injection_type == 'Full DAST':
