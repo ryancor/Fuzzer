@@ -8,27 +8,29 @@ Input.welcome()
 
 end_point = Input.ep_options()
 request_type = Input.req_options()
+request_case = request_type.casefold()
 
 user, passwd = Input.auth_options()
 
 injection_type = Injections.injection_options()
+inject_case = injection_type.casefold()
 
 ops = []
-if injection_type == 'SQL':
+if inject_case == 'SQL'.casefold():
     ops.append(Injections.sql_injections())
-elif injection_type == 'XSS':
+elif inject_case == 'XSS'.casefold():
     ops.append(Injections.xss_injections())
-elif injection_type == 'Command':
+elif inject_case == 'Command'.casefold():
     ops.append(Injections.command_injections())
-elif injection_type == 'RCE':
+elif inject_case == 'RCE'.casefold():
     ops.append(Injections.rce_injections())
-elif injection_type == 'LFI':
+elif inject_case == 'LFI'.casefold():
     ops.append(Injections.sql_injections())
-elif injection_type == 'LDAP':
+elif inject_case == 'LDAP'.casefold():
     ops.append(Injections.ldap_injections())
-elif injection_type == 'Fuzzer':
+elif inject_case == 'Fuzzer'.casefold():
     ops.append(Injections.sql_injections())
-elif injection_type == 'DAST' or injection_type == 'Full DAST':
+elif inject_case == 'DAST'.casefold():
     ops.append(Injections.dast_scan())
 else:
     print('\n[-] Not a valid injection type.')
@@ -43,13 +45,13 @@ for arr in ops[0]:
         if '[]' in end_point:
             new_ep = end_point.replace('[]', arr)
 
-            if request_type == 'GET' or request_type == 'get':
+            if request_case == 'GET'.casefold():
                 r = requests.get(new_ep, auth=(user, passwd))
-            elif request_type == 'POST' or request_type == 'post':
+            elif request_case == 'POST'.casefold():
                 r = requests.post(new_ep, auth=(user, passwd))
-            elif request_type == 'PUT' or request_type == 'put':
+            elif request_case == 'PUT'.casefold():
                 r = requests.put(new_ep, auth=(user, passwd))
-            elif request_type == 'DEL' or request_type == 'del':
+            elif rrequest_case == 'DEL'.casefold():
                 r = requests.delete(new_ep, auth=(user, passwd))
             else:
                 print('\n[-] Not a valid request type.')
