@@ -64,7 +64,7 @@ for arr in ops[0]:
                 r = requests.post(new_ep, auth=(user, passwd), headers=head)
             elif request_case == 'PUT'.casefold():
                 r = requests.put(new_ep, auth=(user, passwd), headers=head)
-            elif rrequest_case == 'DEL'.casefold():
+            elif request_case == 'DEL'.casefold():
                 r = requests.delete(new_ep, auth=(user, passwd), headers=head)
             else:
                 print('\n[-] Not a valid request type.')
