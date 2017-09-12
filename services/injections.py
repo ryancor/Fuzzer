@@ -1,7 +1,7 @@
 class Injections():
     def injection_options():
         injection_type = input('\n[!] What type of injection do you want?\
-        (Options: SQL, Command, XSS, RCE, LDAP, LFI, Fuzzer, Full DAST)\
+        (Options: SQL, Command, XSS, RCE, LDAP, LFI, Fuzzer, Full DAST, Url Snooper)\
         \n-> ')
 
         return injection_type
@@ -62,3 +62,11 @@ class Injections():
             "(&(USER = root)(&)","(&(cn=hacker)(cn=*))%00)(userPassword=[pass]))"]
 
         return dast_scan
+
+    def url_snoop():
+        url_scan = ['.data', '.php', '.html', '.zip', '.exe', '.rb', '.py',
+            '.swf', '.xhtml', '.iso', '.sql', '.avi', '.css', '.doc', '.pdf',
+            '.gif', '.png', '.jpg', '.jpeg', '.midi', '.mov', '.mp3', '.tar.gz',
+            '.htm']
+
+        return url_scan

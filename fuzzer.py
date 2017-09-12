@@ -18,10 +18,12 @@ user, passwd = Input.auth_options()
 ## Option for user to include headers
 header_q = Input.header_num_options()
 head = {}
-if int(header_q) >= 1:
+if header_q.isdigit():
     for x in range(0, int(header_q)):
         head_type, head_content = Input.header_options()
         head.update(dict(((head_type, head_content),)))
+else:
+    head = {}
 
 
 ## Type of injection
@@ -45,6 +47,8 @@ elif inject_case == 'Fuzzer'.casefold():
     ops.append(Injections.sql_injections())
 elif inject_case == 'DAST'.casefold():
     ops.append(Injections.dast_scan())
+elif inject_case == 'UrlSnoop'.casefold():
+    ops.append(Injections.url_snoop())
 else:
     print('\n[-] Not a valid injection type.')
     sys.exit(0)
@@ -80,4 +84,3 @@ for arr in ops[0]:
 
     except:
         print('\n[-] Could not make a successful request to that endpoint.')
-        break
