@@ -4,23 +4,27 @@ import requests
 from services.options import Input
 from services.injections import Injections
 
+## Welcome Message
 Input.welcome()
 
+## Input the endpoint to inject & asking for request type
 end_point = Input.ep_options()
 request_type = Input.req_options()
 request_case = request_type.casefold()
 
+## Incase user wants to have basic auth
 user, passwd = Input.auth_options()
 
+## Option for user to include headers
 header_q = Input.header_num_options()
 head = {}
 if int(header_q) >= 1:
     for x in range(0, int(header_q)):
-        head_type = input('\n[!] Provide header type (Ex: Content-Type): ')
-        head_content = input('\n[!] Provide header content (Ex: application/json): ')
+        head_type, head_content = Input.header_options()
         head.update(dict(((head_type, head_content),)))
 
 
+## Type of injection
 injection_type = Injections.injection_options()
 inject_case = injection_type.casefold()
 
