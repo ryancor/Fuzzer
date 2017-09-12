@@ -22,3 +22,8 @@ class Input():
         passwd = input('[!] Provide Basic-Auth Password (leave blank if none): ')
 
         return user, passwd
+
+    def header_num_options():
+        header_q = input('\n[!] How many headers do you want? ')
+
+        return header_q
